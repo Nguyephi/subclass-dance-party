@@ -25,3 +25,13 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.pulsate {
+  transform: scale(2);
+}
+.emoji_1 {
+  background-image: url("src/images/anger.gif");
+  background-size: contain;
+  position: absolute;
+  height:50px;
+  width:50px;
+}
