@@ -1,10 +1,19 @@
 body, html{
   height:100%;
+  overflow: hidden;
+  user-select: none;
 }
 body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-image: url(src/images/dancefloor.png);
+  background-size: cover;
+  background-position: center top;
+
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -12,10 +21,22 @@ body, a:link, a:visited, a:active{
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+  cursor: pointer;
+}
+.addDancerButton:hover {
+  color: white;
+  text-decoration: underline;
 }
 .topbar{
   height:32px;
   background-color: #555;
+  transition: all 2.0s;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index:999;
+  opacity:1;
 }
 .title{
   background-color: #777;
@@ -24,6 +45,7 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  transition: all 2.0s;
 }
 .pulsate {
   transform: scale(2);
@@ -31,7 +53,49 @@ body, a:link, a:visited, a:active{
 .emoji_1 {
   background-image: url("src/images/anger.gif");
   background-size: contain;
+  height:32px;
+  width:32px;
+  position:absolute;
+  transition: all 0.5s;
+  background-repeat: no-repeat;
+}
+.emoji_1:hover {
+  transform: scale(2);
+
+}
+.horse {
+  background-image: url("src/images/horse1.png");
+  background-size: cover;
+  height:150px;
+  width:150px;
   position: absolute;
-  height:50px;
-  width:50px;
+  transition: all 2.0s;
+  font-size: 50px;
+  font-weight:bold;
+  color: white;
+  text-shadow: 0px 0px 17px rgba(0,0,0,0.94);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  line-height: 3em;
+  font-family: Arial, Helvetica, sans-serif;
+  transform: scale(1);
+}
+.title1 {
+  position:absolute;
+  top: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid black;
+  padding: 50px;
+  background-color: rgb(139, 138, 138);
+  font-size: 72px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0px 0px 17px rgba(0,0,0,0.94);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  border-radius: 16px;
+}
+.race {
+  background-image: url(src/images/track.png);
+  background-size: cover;
 }

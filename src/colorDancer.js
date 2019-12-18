@@ -9,9 +9,8 @@ makeColorDancer.prototype = Object.create(makeDancer.prototype);
 makeColorDancer.prototype.constructor = makeColorDancer;
 
 makeColorDancer.prototype.step = function() {
-  var colors = ['green','purple','yellow', 'pink']
+  var colors = ['green','purple','yellow', 'pink'];
   color = colors[Math.floor(Math.random() * 4)];
-  console.log(color);
   this.$node.css({ "border": "10px solid " + color});
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
