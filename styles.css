@@ -60,7 +60,7 @@ body, a:link, a:visited, a:active{
   background-repeat: no-repeat;
 }
 .emoji_1:hover {
-  transform: scale(2);
+  transform: scale(3);
 
 }
 .horse {

@@ -19,7 +19,6 @@ $(document).ready(function() {
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     // get the maker function for the kind of dancer we're supposed to make
-    console.log(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
@@ -31,7 +30,7 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
 
-    if (dancerMakerFunctionName === 'makeHorseDancer') {
+    if (dancerMakerFunctionName === 'HorseDancer') {
       window.horses.push(dancer);
     } else {
       window.dancers.push(dancer);
@@ -60,7 +59,6 @@ var randomList = function(n) {
 };
 
 var horseRace = function() {
-
   $('body').toggleClass('race');
 
   window.height = $('body').height();
@@ -82,13 +80,10 @@ var horseRace = function() {
   setTimeout(function(){
     readySetGo();
   }, 2000);
-
 };
 
 var readySetGo = function() {
-
   $('body').append('<div class="title1">READY</div>');
-
   setTimeout(function() {
     $('.title1').text('SET');
     setTimeout(function(){
@@ -99,7 +94,6 @@ var readySetGo = function() {
       },700);
     },1500);
   }, 1500);
-
 };
 
 var getRandom = function() {
@@ -111,7 +105,6 @@ var getRandom2 = function() {
 };
 
 var moveHorses = function() {
-
   for (var i = 0; i < window.numHorse; i++) {
     var left = parseInt($('.horse').eq(i).css("left"));
     if(left > width - 250) {
@@ -122,7 +115,6 @@ var moveHorses = function() {
           dancers[i].$node.css({'top':  dancers[i].top + 'px', 'left': dancers[i].left + 'px'});
         }
         $(".topbar").css({'top': '0px', 'transform': 'rotate(0deg)'});
-
         $('.horse').css({'left': '-200px','transform': 'rotate(359deg)'});
         delete window.horses;
         window.horses= new Array();
@@ -131,7 +123,7 @@ var moveHorses = function() {
           $('body').toggleClass('race');
           $('.horse').remove();
         },2000);
-      },2000);
+      },2500);
 
       return;
     }

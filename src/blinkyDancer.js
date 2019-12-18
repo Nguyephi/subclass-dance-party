@@ -1,12 +1,12 @@
-var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
-  // var this = Object.create(makeBlinkyDancer.prototype);
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var BlinkyDancer = function(top, left, timeBetweenSteps) {
+  // var this = Object.create(BlinkyDancer.prototype);
+  Dancer.call(this, top, left, timeBetweenSteps);
   // return this;
 };
-makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
-makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
+BlinkyDancer.prototype.constructor = BlinkyDancer;
 
-makeBlinkyDancer.prototype.step = function() {
+BlinkyDancer.prototype.step = function() {
   this.$node.toggle();
-  makeDancer.prototype.step.call(this);
+  Dancer.prototype.step.call(this);
 };

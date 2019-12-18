@@ -1,13 +1,13 @@
 window.numHorse = 0;
-var makeHorseDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var HorseDancer = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.$node = $('<div class="horse"></div>');
   this.setPosition(this.top, this.left);
   window.numHorse++;
 };
-makeHorseDancer.prototype = Object.create(makeDancer.prototype);
-makeHorseDancer.prototype.constructor = makeHorseDancer;
+HorseDancer.prototype = Object.create(Dancer.prototype);
+HorseDancer.prototype.constructor = HorseDancer;
 
-makeHorseDancer.prototype.step = function() {
-  makeDancer.prototype.step.call(this);
+HorseDancer.prototype.step = function() {
+  Dancer.prototype.step.call(this);
 };

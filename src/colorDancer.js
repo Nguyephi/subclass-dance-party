@@ -1,12 +1,13 @@
-var makeColorDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.call(this, top, left, timeBetweenSteps);
+var ColorDancer = function(top, left, timeBetweenSteps) {
+  // var this = Object.create(ColorDancer.prototype);
+  Dancer.call(this, top, left, timeBetweenSteps);
 };
-makeColorDancer.prototype = Object.create(makeDancer.prototype);
-makeColorDancer.prototype.constructor = makeColorDancer;
+ColorDancer.prototype = Object.create(Dancer.prototype);
+ColorDancer.prototype.constructor = ColorDancer;
 
-makeColorDancer.prototype.step = function() {
+ColorDancer.prototype.step = function() {
   var colors = ['green', 'purple', 'yellow', 'pink'];
   color = colors[Math.floor(Math.random() * 4)];
   this.$node.css({ 'border': '10px solid ' + color});
-  makeDancer.prototype.step.call(this);
+  Dancer.prototype.step.call(this);
 };
