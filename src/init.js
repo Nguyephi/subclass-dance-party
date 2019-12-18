@@ -68,16 +68,16 @@ var horseRace = function() {
 
   for (var i = 0; i < dancers.length; i++) {
     var r = temp[i];
-    dancers[r].$node.css({'top': 20 + i * (height - 40) / dancers.length + 'px', 'left': (width-100) + 'px'});
+    dancers[r].$node.css({'top': 20 + i * (height - 40) / dancers.length + 'px', 'left': (width - 100) + 'px'});
   }
 
   for (var i = 0; i < window.numHorse; i++) {
     $('.horse').eq(i).text(i + 1);
     $('.horse').eq(i).css({'top': (10 + i * 130) + 'px', 'left': '10px'});
   }
-  $(".topbar").css({'top': '1300px', 'transform': 'rotate(180deg)' });
+  $('.topbar').css({'top': '1300px', 'transform': 'rotate(180deg)' });
 
-  setTimeout(function(){
+  setTimeout(function() {
     readySetGo();
   }, 2000);
 };
@@ -86,13 +86,13 @@ var readySetGo = function() {
   $('body').append('<div class="title1">READY</div>');
   setTimeout(function() {
     $('.title1').text('SET');
-    setTimeout(function(){
+    setTimeout(function() {
       $('.title1').text('GO!');
-      setTimeout(function(){
+      setTimeout(function() {
         $('.title1').hide();
         moveHorses();
-      },700);
-    },1500);
+      }, 700);
+    }, 1500);
   }, 1500);
 };
 
@@ -106,24 +106,24 @@ var getRandom2 = function() {
 
 var moveHorses = function() {
   for (var i = 0; i < window.numHorse; i++) {
-    var left = parseInt($('.horse').eq(i).css("left"));
-    if(left > width - 250) {
+    var left = parseInt($('.horse').eq(i).css('left'));
+    if (left > width - 250) {
       $('.title1').text('Horse #' + (i + 1) + ' wins!').show();
-      setTimeout(function(){
+      setTimeout(function() {
         $('.title1').hide();
         for (var i = 0; i < dancers.length; i++) {
-          dancers[i].$node.css({'top':  dancers[i].top + 'px', 'left': dancers[i].left + 'px'});
+          dancers[i].$node.css({'top': dancers[i].top + 'px', 'left': dancers[i].left + 'px'});
         }
-        $(".topbar").css({'top': '0px', 'transform': 'rotate(0deg)'});
-        $('.horse').css({'left': '-200px','transform': 'rotate(359deg)'});
+        $('.topbar').css({'top': '0px', 'transform': 'rotate(0deg)'});
+        $('.horse').css({'left': '-200px', 'transform': 'rotate(359deg)'});
         delete window.horses;
-        window.horses= new Array();
+        window.horses = new Array();
         window.numHorse = 0;
-        setTimeout(function(){
+        setTimeout(function() {
           $('body').toggleClass('race');
           $('.horse').remove();
-        },2000);
-      },2500);
+        }, 2000);
+      }, 2500);
 
       return;
     }
@@ -131,7 +131,7 @@ var moveHorses = function() {
     $('.horse').eq(i).css({'top': (10 + i * 130) + 'px', 'left': left + temp + 'px', 'transform': 'rotate(' + getRandom2() + 'deg)' });
   }
 
-  setTimeout(function(){
+  setTimeout(function() {
     moveHorses();
-  },500);
+  }, 500);
 };
