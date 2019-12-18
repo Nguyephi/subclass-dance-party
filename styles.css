@@ -29,8 +29,8 @@ body, a:link, a:visited, a:active{
 }
 .topbar{
   height:32px;
-  background-color: #555;
-  transition: all 2.0s;
+  background-color: rgb(53, 53, 53);
+  transition: all 3.0s;
   position:absolute;
   top: 0px;
   left: 0px;

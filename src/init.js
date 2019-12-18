@@ -25,18 +25,18 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       0.5 + Math.random() * 1000
     );
     $('body').append(dancer.$node);
 
-    if(dancerMakerFunctionName === 'makeHorseDancer') {
+    if (dancerMakerFunctionName === 'makeHorseDancer') {
       window.horses.push(dancer);
     } else {
       window.dancers.push(dancer);
     }
-    if(window.numHorse===5) {
+    if (window.numHorse === 5) {
       var bugle = new Audio('src/sound/first-call.wav');
       bugle.volume = 0.1;
       bugle.play();
@@ -48,13 +48,13 @@ $(document).ready(function() {
 
 var randomList = function(n) {
   var temp = [];
-  for(var i = 0; i < n; i++) {
+  for (var i = 0; i < n; i++) {
     temp.push(i);
   }
   var r = [];
   do {
     index = Math.floor(Math.random() * temp.length);
-    r.push((temp.splice(index,1))[0]);
+    r.push((temp.splice(index, 1))[0]);
   } while (temp.length);
   return r;
 };
@@ -68,28 +68,26 @@ var horseRace = function() {
 
   var temp = randomList(dancers.length);
 
-  for(var i = 0; i < dancers.length; i++) {
+  for (var i = 0; i < dancers.length; i++) {
     var r = temp[i];
-    dancers[r].$node.css({'top':  20 + i*(height-40)/dancers.length + 'px' ,'left': (width-100) + 'px'});
+    dancers[r].$node.css({'top': 20 + i * (height - 40) / dancers.length + 'px', 'left': (width-100) + 'px'});
   }
 
-  for(var i = 0; i < window.numHorse; i++) {
-    $('.horse').eq(i).text(i+1);
-    $('.horse').eq(i).css({'top': (10+i*130) + 'px', 'left': '10px'});
+  for (var i = 0; i < window.numHorse; i++) {
+    $('.horse').eq(i).text(i + 1);
+    $('.horse').eq(i).css({'top': (10 + i * 130) + 'px', 'left': '10px'});
   }
   $(".topbar").css({'top': '1300px', 'transform': 'rotate(180deg)' });
 
   setTimeout(function(){
     readySetGo();
-  },2000);
+  }, 2000);
 
 };
 
 var readySetGo = function() {
 
-  $('body').append(`
-    <div class="title1">READY</div>
-  `);
+  $('body').append('<div class="title1">READY</div>');
 
   setTimeout(function() {
     $('.title1').text('SET');
@@ -98,7 +96,6 @@ var readySetGo = function() {
       setTimeout(function(){
         $('.title1').hide();
         moveHorses();
-
       },700);
     },1500);
   }, 1500);
@@ -106,25 +103,25 @@ var readySetGo = function() {
 };
 
 var getRandom = function() {
-  return Math.random()*120-9;
+  return Math.random() * 120 - 9;
 };
 
 var getRandom2 = function() {
-  return Math.floor(Math.random()*32-16);
+  return Math.floor(Math.random() * 32 - 16);
 };
 
 var moveHorses = function() {
 
-  for(var i = 0; i < window.numHorse; i++) {
+  for (var i = 0; i < window.numHorse; i++) {
     var left = parseInt($('.horse').eq(i).css("left"));
-    if(left > width-250) {
-      $('.title1').text('Horse #' + (i+1) + ' wins!').show();
+    if(left > width - 250) {
+      $('.title1').text('Horse #' + (i + 1) + ' wins!').show();
       setTimeout(function(){
         $('.title1').hide();
-        for(var i = 0; i < dancers.length; i++) {
-          dancers[i].$node.css({'top':  dancers[i].top + 'px' ,'left': dancers[i].left + 'px'});
+        for (var i = 0; i < dancers.length; i++) {
+          dancers[i].$node.css({'top':  dancers[i].top + 'px', 'left': dancers[i].left + 'px'});
         }
-        $(".topbar").css({'top': '0px', 'transform': 'rotate(0deg)' });
+        $(".topbar").css({'top': '0px', 'transform': 'rotate(0deg)'});
 
         $('.horse').css({'left': '-200px','transform': 'rotate(359deg)'});
         delete window.horses;
@@ -139,7 +136,7 @@ var moveHorses = function() {
       return;
     }
     var temp = getRandom();
-    $('.horse').eq(i).css({'top': (10+i*130) + 'px', 'left': left + temp + 'px', 'transform': 'rotate(' + getRandom2() + 'deg)' });
+    $('.horse').eq(i).css({'top': (10 + i * 130) + 'px', 'left': left + temp + 'px', 'transform': 'rotate(' + getRandom2() + 'deg)' });
   }
 
   setTimeout(function(){
